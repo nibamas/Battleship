@@ -28,9 +28,6 @@ jobs:
 
       - run: yarn install
 
-      - store_test_results:
-          path: test-results
-
       - save_cache:
           paths:
             - node_modules
@@ -38,4 +35,11 @@ jobs:
         
       # run tests!
       - run: yarn test
+
+      - store_artifacts:
+          path: ./test-results.xml
+          prefix: tests
+
+      - store_test_results:
+          path: test-results
 
